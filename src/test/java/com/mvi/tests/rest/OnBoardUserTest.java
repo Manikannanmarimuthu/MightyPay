@@ -22,6 +22,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 	public static int dataRow = 2;
 	public static int reqLastCellNum = 24;
 	public static final String COLUMN = "COLUMN";
+	public static final String NO_TAG = "NO_TAG";
 	public static LinkedHashMap<String, String> headerMap = new LinkedHashMap<String, String>();
 	public static LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
 	public static LinkedHashMap<String, String> tcMap = new LinkedHashMap<String, String>();
@@ -53,12 +54,14 @@ public class OnBoardUserTest extends RESTAssuredBase {
 				testCaseId = currRow.getCell(5);
 				testCaseId.setCellType(Cell.CELL_TYPE_STRING);
 				Cell cell1 = currRow.getCell(j);
-				System.out.println("cell1" + cell1);
+				System.out.println("cell Value  = " + cell1);
 				cell1.setCellType(Cell.CELL_TYPE_STRING);
-				if (cell1 != null && !cell1.getStringCellValue().isEmpty()) {
-					dataMap.put(headerMap.get(COLUMN + j), cell1.getStringCellValue());
-				} else {
+				if (cell1 == null || cell1.getStringCellValue().isEmpty()) {
 					dataMap.put(headerMap.get(COLUMN + j), "");
+				} else if (cell1.getStringCellValue().trim().contains(NO_TAG)) {
+					;
+				} else {
+					dataMap.put(headerMap.get(COLUMN + j), cell1.getStringCellValue());
 				}
 			}
 			if (!dataMap.isEmpty()) {
