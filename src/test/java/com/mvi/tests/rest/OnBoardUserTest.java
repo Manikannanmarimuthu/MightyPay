@@ -29,8 +29,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 	@SuppressWarnings("deprecation")
 	@Test
 	public static void read() throws IOException {
-		FileInputStream inStream = new FileInputStream(
-				"D:\\Rest API\\UdemyWorkspace\\MightyPay\\data\\Testcases_MightyPay_v0.5.xlsx");
+		FileInputStream inStream = new FileInputStream("./testdata/OnboardUserEntity.xlsx");
 		XSSFWorkbook myWorkBook = new XSSFWorkbook(inStream);
 		XSSFSheet mySheet = myWorkBook.getSheet("Onboard User Entity");
 		{
@@ -54,6 +53,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 				testCaseId = currRow.getCell(5);
 				testCaseId.setCellType(Cell.CELL_TYPE_STRING);
 				Cell cell1 = currRow.getCell(j);
+				System.out.println("cell1" + cell1);
 				cell1.setCellType(Cell.CELL_TYPE_STRING);
 				if (cell1 != null && !cell1.getStringCellValue().isEmpty()) {
 					dataMap.put(headerMap.get(COLUMN + j), cell1.getStringCellValue());
@@ -65,6 +65,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 				Response response = postWithJsonAsBody(dataMap, "/onboard", testCaseId.getStringCellValue());
 				usingDataOutputStream(response, testCaseId.getStringCellValue());
 				Onboard_Res onBoard = response.getBody().as(Onboard_Res.class);
+				lastCellNum++;
 				setRowData(currRow, onBoard.getResponseCode(), lastCellNum++);
 				setRowData(currRow, onBoard.getAuthidresp(), lastCellNum++);
 				setRowData(currRow, onBoard.getRrn(), lastCellNum++);
@@ -78,8 +79,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 		inStream.close();
 
 		try {
-			FileOutputStream out = new FileOutputStream(
-					"D:\\Rest API\\UdemyWorkspace\\MightyPay\\data\\Testcases_MightyPay_v0.5.xlsx");
+			FileOutputStream out = new FileOutputStream("./testdata/OnboardUserEntity.xlsx");
 			myWorkBook.write(out);
 			myWorkBook.close();
 			out.close();

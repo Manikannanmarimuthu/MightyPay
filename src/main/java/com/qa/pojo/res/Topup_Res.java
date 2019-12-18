@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public class Topup_Res {
 
+	private String responseCode;
 	private String message;
 	private String rrn;
 	private String authidresp;
