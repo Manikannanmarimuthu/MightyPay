@@ -26,8 +26,6 @@ public class OnBoardUserTest extends RESTAssuredBase {
 	public static LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
 	public static LinkedHashMap<String, String> tcMap = new LinkedHashMap<String, String>();
 
-	private static String APIName = "http://192.168.0.194:8181/0.1/fe-api-gw";
-
 	@Test
 	public static void read() throws IOException {
 		FileInputStream inStream = new FileInputStream(
@@ -66,7 +64,6 @@ public class OnBoardUserTest extends RESTAssuredBase {
 				Response response = postWithJsonAsBody(dataMap, "/onboard", testCaseId.getStringCellValue());
 				usingDataOutputStream(response, testCaseId.getStringCellValue());
 				OnboardRes onBoard = response.getBody().as(OnboardRes.class);
-				// lastCellNum++; // separator
 				setRowData(currRow, onBoard.getResponseCode(), lastCellNum++);
 				setRowData(currRow, onBoard.getAuthidresp(), lastCellNum++);
 				setRowData(currRow, onBoard.getRrn(), lastCellNum++);
