@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.poi.ss.usermodel.Cell;
-
 import com.mv.apitesting.listeners.BaseClass;
 
 import io.cucumber.datatable.dependency.com.fasterxml.jackson.core.JsonProcessingException;
@@ -27,10 +25,8 @@ import net.minidev.json.JSONObject;
 
 public class RESTAssuredBase extends BaseClass {
 
-	private static String APIName = "http://192.168.0.194:8181/0.1/fe-api-gw";
-
 	public static RequestSpecification setLogs() {
-		RestAssured.baseURI = "http://192.168.0.194:8181/0.1/fe-api-gw";
+		RestAssured.baseURI = "http://192.168.0.194:8181/0.1/fe-api-gw/";
 		RequestLogSpecification log = RestAssured.given().log();
 		return log.all().contentType(getContentType());
 	}
@@ -64,7 +60,7 @@ public class RESTAssuredBase extends BaseClass {
 		String json;
 		try {
 			json = mapper.writeValueAsString(map);
-			usingDataOutputStream1(json, testCaseID);
+			usingDataOutputStream1(json, testCaseID, URL);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
@@ -79,19 +75,25 @@ public class RESTAssuredBase extends BaseClass {
 		return setLogs().when().headers(headers).post(URL);
 	}
 
-	public static void usingDataOutputStream(Response res, String fName) throws IOException {
-		FileOutputStream outputStream = new FileOutputStream("./reports/" + fName + "_Res.json");
+	public static void usingDataOutputStream(Response res, String testCaseID, String folderName) throws IOException {
+		File file = new File("./reports/" + folderName);
+		if (!file.exists()) {
+			file.mkdir();
+		}
+		FileOutputStream outputStream = new FileOutputStream(
+				file.getPath() + File.separator + testCaseID + "_Res.json");
 		DataOutputStream dataOutStream = new DataOutputStream(new BufferedOutputStream(outputStream));
 		String resp = res.asString();
 		dataOutStream.writeUTF(resp);
 		dataOutStream.close();
 	}
 
-	public static void usingDataOutputStream1(String fileContent, String testCaseID) {
-
+	public static void usingDataOutputStream1(String fileContent, String testCaseID, String folderName) {
+		File file = new File("./reports/" + folderName);
+		file.mkdir();
 		FileOutputStream outputStream;
 		try {
-			outputStream = new FileOutputStream("./reports/" + testCaseID + "_Req.json");
+			outputStream = new FileOutputStream(file.getPath() + File.separator + testCaseID + "_Req.json");
 			DataOutputStream dataOutStream = new DataOutputStream(new BufferedOutputStream(outputStream));
 			try {
 				dataOutStream.writeUTF(fileContent);

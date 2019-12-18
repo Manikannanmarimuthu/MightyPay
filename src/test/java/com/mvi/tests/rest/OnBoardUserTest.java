@@ -19,7 +19,7 @@ import io.restassured.response.Response;
 
 public class OnBoardUserTest extends RESTAssuredBase {
 
-	public static int dataRow = 2;
+	public static int dataRow = 2; // without Header
 	public static int reqLastCellNum = 24;
 	public static final String COLUMN = "COLUMN";
 	public static final String NO_TAG = "NO_TAG";
@@ -65,8 +65,8 @@ public class OnBoardUserTest extends RESTAssuredBase {
 				}
 			}
 			if (!dataMap.isEmpty()) {
-				Response response = postWithJsonAsBody(dataMap, "/onboard", testCaseId.getStringCellValue());
-				usingDataOutputStream(response, testCaseId.getStringCellValue());
+				Response response = postWithJsonAsBody(dataMap, "onboard", testCaseId.getStringCellValue());
+				usingDataOutputStream(response, testCaseId.getStringCellValue(), "onboard");
 				Onboard_Res onBoard = response.getBody().as(Onboard_Res.class);
 				lastCellNum++;
 				setRowData(currRow, onBoard.getResponseCode(), lastCellNum++);
