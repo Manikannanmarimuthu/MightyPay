@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
 import com.mvi.lib.rest.RESTAssuredBase;
-import com.qa.pojo.res.OnboardRes;
+import com.qa.pojo.res.Onboard_Res;
 
 import io.restassured.response.Response;
 
@@ -26,6 +26,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 	public static LinkedHashMap<String, String> dataMap = new LinkedHashMap<String, String>();
 	public static LinkedHashMap<String, String> tcMap = new LinkedHashMap<String, String>();
 
+	@SuppressWarnings("deprecation")
 	@Test
 	public static void read() throws IOException {
 		FileInputStream inStream = new FileInputStream(
@@ -63,7 +64,7 @@ public class OnBoardUserTest extends RESTAssuredBase {
 			if (!dataMap.isEmpty()) {
 				Response response = postWithJsonAsBody(dataMap, "/onboard", testCaseId.getStringCellValue());
 				usingDataOutputStream(response, testCaseId.getStringCellValue());
-				OnboardRes onBoard = response.getBody().as(OnboardRes.class);
+				Onboard_Res onBoard = response.getBody().as(Onboard_Res.class);
 				setRowData(currRow, onBoard.getResponseCode(), lastCellNum++);
 				setRowData(currRow, onBoard.getAuthidresp(), lastCellNum++);
 				setRowData(currRow, onBoard.getRrn(), lastCellNum++);

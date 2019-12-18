@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Test;
 
 import com.mvi.lib.rest.RESTAssuredBase;
-import com.qa.pojo.res.OnboardRes;
+import com.qa.pojo.res.Onboard_Res;
 
 import io.restassured.response.Response;
 
@@ -65,7 +65,7 @@ public class ExcelToDb extends RESTAssuredBase {
 			if (!dataMap.isEmpty()) {
 				Response response = postWithJsonAsBody(dataMap, "/onboard", testCaseId.getStringCellValue());
 				usingDataOutputStream(response, testCaseId.getStringCellValue());
-				OnboardRes onBoard = response.getBody().as(OnboardRes.class);
+				Onboard_Res onBoard = response.getBody().as(Onboard_Res.class);
 				// lastCellNum++; // separator
 				setRowData(currRow, onBoard.getResponseCode(), lastCellNum++);
 				setRowData(currRow, onBoard.getAuthidresp(), lastCellNum++);

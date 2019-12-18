@@ -3,7 +3,7 @@ package com.qa.pojo.res;
 import lombok.Getter;
 
 @Getter
-public class Topup_resp {
+public class Topup_Res {
 
 	private String message;
 	private String rrn;

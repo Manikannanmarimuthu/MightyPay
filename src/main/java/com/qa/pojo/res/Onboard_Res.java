@@ -3,7 +3,7 @@ package com.qa.pojo.res;
 import lombok.Getter;
 
 @Getter
-public class OnboardRes {
+public class Onboard_Res {
 	private String responseCode;
 	private String message;
 	private String rrn;
@@ -12,5 +12,4 @@ public class OnboardRes {
 	private String txnUid;
 	private String trxnTime;
 	private String walletId;
-
 }
