@@ -1,8 +1,8 @@
 package com.qa.pojo.res;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class Topup_Res {
 
 	private String responseCode;
@@ -16,5 +16,6 @@ public class Topup_Res {
 	private String availableQuantity;
 	private String userEntityId;
 	private String walletId;
+	private String trxnTimeZone;
 
 }
