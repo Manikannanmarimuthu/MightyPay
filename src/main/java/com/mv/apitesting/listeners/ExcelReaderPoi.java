@@ -27,7 +27,6 @@ public class ExcelReaderPoi {
 	public Workbook getWorkbook(String fileName) {
 		Workbook newWorkbook = null;
 		try {
-
 			File file = new File(fileName);
 			String fileName1 = file.getName();
 			FileInputStream inputStream = new FileInputStream(file);
@@ -59,7 +58,6 @@ public class ExcelReaderPoi {
 						String headerData;
 						if (temp.getCell(i) != null) {
 							headerData = temp.getCell(i).getStringCellValue();
-							// System.out.println(headerData);
 						} else {
 							headerData = null;
 						}
@@ -69,7 +67,6 @@ public class ExcelReaderPoi {
 						if (temp.getCell(i) != null) {
 							temp.getCell(i).setCellType(Cell.CELL_TYPE_STRING);
 							rowData = temp.getCell(i).getStringCellValue();
-							System.out.println("Row Data " + rowData);
 						} else {
 							rowData = null;
 						}
@@ -126,4 +123,5 @@ public class ExcelReaderPoi {
 		}
 		return returnableArrays;
 	}
+
 }

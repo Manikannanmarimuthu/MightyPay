@@ -18,5 +18,4 @@ public class Redeem_Res {
 	private String platformRef;
 	private String trxnTime;
 	private String trxnTimeZone;
-
 }

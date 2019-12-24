@@ -10,8 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.mv.apitesting.listeners.BaseClass;
-
 import io.cucumber.datatable.dependency.com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.datatable.dependency.com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.datatable.dependency.com.fasterxml.jackson.databind.SerializationFeature;
@@ -23,7 +21,7 @@ import io.restassured.specification.RequestLogSpecification;
 import io.restassured.specification.RequestSpecification;
 import net.minidev.json.JSONObject;
 
-public class RESTAssuredBase extends BaseClass {
+public class RESTAssuredBase extends PreAndTest {
 
 	public static RequestSpecification setLogs() {
 		RestAssured.baseURI = "http://192.168.0.194:8181/0.1/fe-api-gw/";
