@@ -13,8 +13,7 @@ import com.mv.apitesting.listeners.BaseClass;
 import com.mv.apitesting.listeners.ExcelReaderPoi;
 import com.mv.apitesting.listeners.ExtentTestManager;
 import com.qa.json.pojo.Topup;
-
-import com.qa.pojo.res.Topup_Res;
+import com.qa.json.pojo.Topup_Resp;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.restassured.RestAssured;
@@ -74,7 +73,7 @@ public class TopupTest2 extends BaseClass {
 		usingDataOutputStream(response.extract().asString(), mObj.get("TestCaseID"), "Topup", false);
 		
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		Topup_Res T_up = mapper.readValue(response.extract().asString(), Topup_Res.class);
+		Topup_Resp T_up = mapper.readValue(response.extract().asString(), Topup_Resp.class);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case No : " + mObj.get("TestCaseID"));
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Payload is: " + jsonBody);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response is: " + response.extract().asString());
