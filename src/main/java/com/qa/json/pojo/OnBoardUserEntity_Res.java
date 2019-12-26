@@ -24,5 +24,6 @@ public class OnBoardUserEntity_Res {
 	public String trxnTime;
 	@JsonProperty("walletId")
 	public String walletId;
+	@JsonProperty("trxnTimeZone")
 	public String trxnTimeZone;
 }

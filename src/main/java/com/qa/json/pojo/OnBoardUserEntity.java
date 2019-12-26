@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({ "mobileno", "platformCode", "userentityidentitytype", "terminalId", "name", "userEntityIdentityType",
+@JsonPropertyOrder({ "platformCode", "terminalId", "name", "mobileno", "userEntityIdentityType",
 	"userentityidentity", "userEntityType", "address1", "address2", "address3",	"postalcode", "city", "countrycode", "timestamp", 
 	"state", "emailid", "kycFlag", "timeZone" })
 public class OnBoardUserEntity {
