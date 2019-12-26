@@ -14,11 +14,11 @@ import com.mv.apitesting.listeners.BaseClass;
 import com.mv.apitesting.listeners.ExcelReaderPoi;
 import com.mv.apitesting.listeners.ExtentTestManager;
 import com.qa.json.pojo.OnBoardUserEntity;
-import com.qa.json.pojo.OnBoardUserEntity2;
+import com.qa.json.pojo.OnBoardUserEntity_Res;
 import com.qa.json.pojo.UpdateUserEntity_Res;
 import com.qa.json.pojo.UserEntityDetails;
 import com.qa.json.pojo.UserUpdateEntity;
-import com.qa.pojo.res.OnBoardUserEntity2_Res;
+
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.restassured.RestAssured;
@@ -43,29 +43,29 @@ public class OnBoardUserTest3 extends BaseClass {
 	@Test(priority = -1, dataProvider = "PositiveTestScenarios")
 	public static void onboardUserEntityTest(Map<String, String> mObj) throws IOException {
 		RestAssured.baseURI = url;
-		OnBoardUserEntity2 OnBoardUserEntity2 = new OnBoardUserEntity2 ();
-				OnBoardUserEntity2.platformCode = mObj.get("platformCode");
-		        OnBoardUserEntity2.terminalId = mObj.get("terminalId");
-		        OnBoardUserEntity2.name = mObj.get("name");
-		        OnBoardUserEntity2.mobileNo = mObj.get("mobileNo");
-		        OnBoardUserEntity2.userEntityIdentityType = mObj.get("userEntityIdentityType");
-		        OnBoardUserEntity2.userEntityIdentity = mObj.get("userEntityIdentity");
-		        OnBoardUserEntity2.userEntityType = mObj.get("userEntityType");
-		        OnBoardUserEntity2.address1 = mObj.get("address1");
-		        OnBoardUserEntity2.address2 = mObj.get("address2");
-		        OnBoardUserEntity2.address3 = mObj.get("address3");
-		        OnBoardUserEntity2.postalCode = mObj.get("postalCode");
-		        OnBoardUserEntity2.city = mObj.get("city");
-		        OnBoardUserEntity2.countryCode = mObj.get("countryCode");
-		        OnBoardUserEntity2.timestamp = mObj.get("timestamp");
-		        OnBoardUserEntity2.timeZone = mObj.get("timeZone");
-		        OnBoardUserEntity2.state = mObj.get("state");
-		        OnBoardUserEntity2.emailId = mObj.get("emailId");
-		        OnBoardUserEntity2.kycFlag = mObj.get("kycFlag");
+		OnBoardUserEntity OnBoardUserEntity = new OnBoardUserEntity ();
+				OnBoardUserEntity.platformCode = mObj.get("platformCode");
+		        OnBoardUserEntity.terminalId = mObj.get("terminalId");
+		        OnBoardUserEntity.name = mObj.get("name");
+		        OnBoardUserEntity.mobileNo = mObj.get("mobileNo");
+		        OnBoardUserEntity.userEntityIdentityType = mObj.get("userEntityIdentityType");
+		        OnBoardUserEntity.userEntityIdentity = mObj.get("userEntityIdentity");
+		        OnBoardUserEntity.userEntityType = mObj.get("userEntityType");
+		        OnBoardUserEntity.address1 = mObj.get("address1");
+		        OnBoardUserEntity.address2 = mObj.get("address2");
+		        OnBoardUserEntity.address3 = mObj.get("address3");
+		        OnBoardUserEntity.postalCode = mObj.get("postalCode");
+		        OnBoardUserEntity.city = mObj.get("city");
+		        OnBoardUserEntity.countryCode = mObj.get("countryCode");
+		        OnBoardUserEntity.timestamp = mObj.get("timestamp");
+		        OnBoardUserEntity.timeZone = mObj.get("timeZone");
+		        OnBoardUserEntity.state = mObj.get("state");
+		        OnBoardUserEntity.emailId = mObj.get("emailId");
+		        OnBoardUserEntity.kycFlag = mObj.get("kycFlag");
 				
 					
 		ObjectMapper mapper = new ObjectMapper();
-		String jsonBody = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(OnBoardUserEntity2);
+		String jsonBody = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(OnBoardUserEntity);
 
 		usingDataOutputStream(jsonBody, mObj.get("TestCaseID"), "OnboardUserEntity", true);
 
@@ -75,7 +75,7 @@ public class OnBoardUserTest3 extends BaseClass {
 		usingDataOutputStream(response.extract().asString(), mObj.get("TestCaseID"), "OnboardUserEntity", false);
 		
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		OnBoardUserEntity2_Res uuEndity = mapper.readValue(response.extract().asString(), OnBoardUserEntity2_Res.class);
+		OnBoardUserEntity_Res uuEndity = mapper.readValue(response.extract().asString(), OnBoardUserEntity_Res.class);
 
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case No : " + mObj.get("TestCaseID"));
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Payload is: " + jsonBody);
