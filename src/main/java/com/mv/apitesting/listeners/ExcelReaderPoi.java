@@ -53,7 +53,7 @@ public class ExcelReaderPoi {
 			Row rw = sheet.getRow(0);
 			for (org.apache.poi.ss.usermodel.Row temp : sheet) {
 				rowValues = new ArrayList<String>();
-				for (int i = 5; i < 23; i++) {
+				for (int i = 5; i < 16; i++) {
 					if (temp.getRowNum() == 0) {
 						String headerData;
 						if (temp.getCell(i) != null) {

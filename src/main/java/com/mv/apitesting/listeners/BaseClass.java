@@ -103,11 +103,11 @@ public abstract class BaseClass {
 					row.getCell(5).setCellType(Cell.CELL_TYPE_STRING);
 					String cellValue = row.getCell(5).getStringCellValue();
 					if (cellValue.equals(testcaseName)) {
-						Cell cell = row.createCell(25);
+						Cell cell = row.createCell(16);
 						cell.setCellValue(testcaseName);
 						XSSFHyperlink link = (XSSFHyperlink) createHelper.createHyperlink(HyperlinkType.FILE);
 						link.setAddress(
-								"D:\\Rest API\\UdemyWorkspace\\MightyPay\\reports\\update-user\\TC_UUE-0001_Req.json");
+								"D:\\Rest API\\UdemyWorkspace\\MightyPay\\reports\\Topup\\TC_UUE-0001_Req.json");
 						cell.setHyperlink(link);
 						cell.setCellStyle(hlinkstyle);
 						break;
