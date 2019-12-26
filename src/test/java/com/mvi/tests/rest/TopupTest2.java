@@ -77,17 +77,17 @@ public class TopupTest2 extends BaseClass {
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case No : " + mObj.get("TestCaseID"));
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Payload is: " + jsonBody);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response is: " + response.extract().asString());
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response Code: " + T_up.responseCode);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response Message: " + T_up.message);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response rrn: " + T_up.rrn);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response authidresp: " + T_up.authidresp);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response platformRef: " + T_up.platformRef);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response txnUid: " + T_up.txnUid);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response trxnTime: " + T_up.trxnTime);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response digitalAssetTypeCode: " + T_up.digitalAssetTypeCode);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response availableQuantity: " + T_up.availableQuantity);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response userEntityId: " + T_up.userEntityId);
-		ExtentTestManager.getTest().log(LogStatus.INFO, "Response walletId: " + T_up.walletId);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "responseCode: " + T_up.responseCode);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "message: " + T_up.message);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "rrn: " + T_up.rrn);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "authidresp: " + T_up.authidresp);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "platformRef: " + T_up.platformRef);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "txnUid: " + T_up.txnUid);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "trxnTime: " + T_up.trxnTime);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "digitalAssetTypeCode: " + T_up.digitalAssetTypeCode);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "availableQuantity: " + T_up.availableQuantity);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "userEntityId: " + T_up.userEntityId);
+		ExtentTestManager.getTest().log(LogStatus.INFO, "walletId: " + T_up.walletId);
 
 
 

@@ -12,13 +12,16 @@ package com.qa.json.pojo;
 		"walletId",
 		"digitalAssetTypeCode",
 		"quantity",
+		"merchantId",
+		"merchantRef",
 		"terminalId",
 		"platformRef",
+		"remarks",
 		"timestamp",
-		"timeZone",
-		"remarks"
+		"timeZone"
+		
 		})
-		public class Topup {
+		public class Redeem {
 
 		@JsonProperty("platformCode")
 		public String platformCode;
@@ -30,18 +33,23 @@ package com.qa.json.pojo;
 		public String digitalAssetTypeCode;
 		@JsonProperty("quantity")
 		public String quantity;
+		@JsonProperty("merchantId")
+		public String merchantId;
+		@JsonProperty("merchantRef")
+		public String merchantRef;
 		@JsonProperty("terminalId")
 		public String terminalId;
 		@JsonProperty("platformRef")
 		public String platformRef;
+		@JsonProperty("remarks")
+		public String remarks;
 		@JsonProperty("timestamp")
 		public String timestamp;
 		@JsonProperty("timeZone")
 		public String timeZone;
-		@JsonProperty("remarks")
-		public String remarks;
 		
-		public Topup() {
+		
+		public Redeem() {
 		
 		}
 

@@ -10,15 +10,13 @@ package com.qa.json.pojo;
 		"platformCode",
 		"userEntityId",
 		"walletId",
-		"digitalAssetTypeCode",
-		"quantity",
 		"terminalId",
-		"platformRef",
-		"timestamp",
-		"timeZone",
-		"remarks"
+		"trxnDateFrom",
+		"trxnDateTo",
+		"txnUid",
+		"digitalAssetTypeCode",
 		})
-		public class Topup {
+		public class TransactionHistoryInquiry {
 
 		@JsonProperty("platformCode")
 		public String platformCode;
@@ -26,22 +24,19 @@ package com.qa.json.pojo;
 		public String userEntityId;
 		@JsonProperty("walletId")
 		public String walletId;
-		@JsonProperty("digitalAssetTypeCode")
-		public String digitalAssetTypeCode;
-		@JsonProperty("quantity")
-		public String quantity;
 		@JsonProperty("terminalId")
 		public String terminalId;
-		@JsonProperty("platformRef")
-		public String platformRef;
-		@JsonProperty("timestamp")
-		public String timestamp;
-		@JsonProperty("timeZone")
-		public String timeZone;
-		@JsonProperty("remarks")
-		public String remarks;
+		@JsonProperty("trxnDateFrom")
+		public String trxnDateFrom;
+		@JsonProperty("trxnDateTo")
+		public String trxnDateTo;
+		@JsonProperty("txnUid")
+		public String txnUid;
+		@JsonProperty("digitalAssetTypeCode")
+		public String digitalAssetTypeCode;
 		
-		public Topup() {
+		
+		public TransactionHistoryInquiry() {
 		
 		}
 

@@ -8,40 +8,51 @@ package com.qa.json.pojo;
 		@JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter=NoTagFilter.class)
 		@JsonPropertyOrder({
 		"platformCode",
-		"userEntityId",
-		"walletId",
+		"fromUserEntityId",
+		"fromWalletId",
+		"toUserEntityId",
+		"toWalletId",
 		"digitalAssetTypeCode",
 		"quantity",
+		"registerToUserEntity",
 		"terminalId",
 		"platformRef",
+		"remarks",
 		"timestamp",
-		"timeZone",
-		"remarks"
+		"timeZone"
+
 		})
-		public class Topup {
+		public class P2PTransfer {
 
 		@JsonProperty("platformCode")
 		public String platformCode;
-		@JsonProperty("userEntityId")
-		public String userEntityId;
-		@JsonProperty("walletId")
-		public String walletId;
+		@JsonProperty("fromUserEntityId")
+		public String fromUserEntityId;
+		@JsonProperty("fromWalletId")
+		public String fromWalletId;
+		@JsonProperty("toUserEntityId")
+		public String toUserEntityId;
+		@JsonProperty("toWalletId")
+		public String toWalletId;
 		@JsonProperty("digitalAssetTypeCode")
 		public String digitalAssetTypeCode;
 		@JsonProperty("quantity")
 		public String quantity;
+		@JsonProperty("registerToUserEntity")
+		public String registerToUserEntity;
 		@JsonProperty("terminalId")
 		public String terminalId;
 		@JsonProperty("platformRef")
 		public String platformRef;
+		@JsonProperty("remarks")
+		public String remarks;
 		@JsonProperty("timestamp")
 		public String timestamp;
 		@JsonProperty("timeZone")
 		public String timeZone;
-		@JsonProperty("remarks")
-		public String remarks;
 		
-		public Topup() {
+		
+		public P2PTransfer() {
 		
 		}
 

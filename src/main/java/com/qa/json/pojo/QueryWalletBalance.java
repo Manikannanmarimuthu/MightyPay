@@ -11,14 +11,15 @@ package com.qa.json.pojo;
 		"userEntityId",
 		"walletId",
 		"digitalAssetTypeCode",
-		"quantity",
 		"terminalId",
 		"platformRef",
 		"timestamp",
 		"timeZone",
 		"remarks"
+		
+
 		})
-		public class Topup {
+		public class QueryWalletBalance {
 
 		@JsonProperty("platformCode")
 		public String platformCode;
@@ -28,8 +29,6 @@ package com.qa.json.pojo;
 		public String walletId;
 		@JsonProperty("digitalAssetTypeCode")
 		public String digitalAssetTypeCode;
-		@JsonProperty("quantity")
-		public String quantity;
 		@JsonProperty("terminalId")
 		public String terminalId;
 		@JsonProperty("platformRef")
@@ -41,7 +40,8 @@ package com.qa.json.pojo;
 		@JsonProperty("remarks")
 		public String remarks;
 		
-		public Topup() {
+		
+		public QueryWalletBalance() {
 		
 		}
 
