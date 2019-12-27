@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter = NoTagFilter.class)
 @JsonPropertyOrder({ "mobileno", "userentityidentitytype", "userentityidentity", "address1", "address2", "address3",
 		"postalcode", "city", "countrycode", "state", "emailid", "kycFlag" })
 
@@ -33,9 +33,4 @@ public class UserEntityDetails {
 	public String emailid;
 	@JsonProperty("kycFlag")
 	public String kycFlag;
-
-	public UserEntityDetails() {
-
-	}
-
 }

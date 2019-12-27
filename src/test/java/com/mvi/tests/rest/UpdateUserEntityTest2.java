@@ -36,6 +36,7 @@ public class UpdateUserEntityTest2 extends BaseClass {
 	@Test(priority = -1, dataProvider = "PositiveTestScenarios")
 	public static void updateUserEntityTest(Map<String, String> mObj) throws IOException {
 		RestAssured.baseURI = url;
+		
 		UserEntityDetails userDetails = new UserEntityDetails();
 		userDetails.mobileno = mObj.get("mobileNo");
 		userDetails.userentityidentitytype = mObj.get("userEntityIdentityType");
@@ -60,24 +61,21 @@ public class UpdateUserEntityTest2 extends BaseClass {
 
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonBody = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(userUpdateEnty);
-
-		usingDataOutputStream(jsonBody, mObj.get("TestCaseID"), "update-user", true);
-
 		ValidatableResponse response = RestAssured.given().when().header("Content-Type", "application/json")
 				.body(jsonBody).post().then();
-		
+
+		usingDataOutputStream(jsonBody, mObj.get("TestCaseID"), "update-user", true);
 		usingDataOutputStream(response.extract().asString(), mObj.get("TestCaseID"), "update-user", false);
-		
+
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		UpdateUserEntity_Res uuEndity = mapper.readValue(response.extract().asString(), UpdateUserEntity_Res.class);
-		getData("UpdateUserEntity", "UpdateUserEntity", mObj.get("TestCaseID"), mObj.get("TestCaseID"));
+
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Test Case No : " + mObj.get("TestCaseID"));
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Payload is: " + jsonBody);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response is: " + response.extract().asString());
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response Code: " + uuEndity.responseCode);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response Message: " + uuEndity.message);
 		ExtentTestManager.getTest().log(LogStatus.INFO, "Response Message: " + uuEndity.rrn);
-
+		
 	}
-
 }
