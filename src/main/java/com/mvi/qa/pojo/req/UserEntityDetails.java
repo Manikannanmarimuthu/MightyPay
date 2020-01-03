@@ -1,8 +1,9 @@
-package com.qa.json.pojo;
+package com.mvi.qa.pojo.req;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.mvi.lib.utils.NoTagFilter;
 
 @JsonInclude(value = JsonInclude.Include.CUSTOM, valueFilter = NoTagFilter.class)
 @JsonPropertyOrder({ "mobileno", "userentityidentitytype", "userentityidentity", "address1", "address2", "address3",

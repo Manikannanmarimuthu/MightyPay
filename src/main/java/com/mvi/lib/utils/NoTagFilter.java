@@ -1,4 +1,4 @@
-package com.qa.json.pojo;
+package com.mvi.lib.utils;
 
 public class NoTagFilter {
 

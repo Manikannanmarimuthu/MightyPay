@@ -18,13 +18,10 @@ public class ExtentTestManager {
 		extent.endTest((ExtentTest) extentTestMap.get((int) (long) (Thread.currentThread().getId())));
 	}
 
-	public static synchronized ExtentTest startTest(String testName) {
-		return startTest(testName, "");
-	}
-
 	public static synchronized ExtentTest startTest(String testName, String desc) {
 		ExtentTest test = extent.startTest(testName, desc);
 		extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
 		return test;
 	}
+
 }

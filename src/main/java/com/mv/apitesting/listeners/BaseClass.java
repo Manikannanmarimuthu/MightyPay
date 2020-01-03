@@ -8,19 +8,18 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.lang.reflect.Method;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import com.relevantcodes.extentreports.LogStatus;
 
 public abstract class BaseClass {
 
-	@BeforeMethod
-	public void beforeMethod(Method method) {
-		ExtentTestManager.startTest(method.getName());
+	public String testCaseName;
+
+	public void beforeMethod(String testName, String desc) {
+		ExtentTestManager.startTest(testName, desc);
 	}
 
 	@AfterMethod
@@ -32,10 +31,11 @@ public abstract class BaseClass {
 		} else {
 			ExtentTestManager.getTest().log(LogStatus.PASS, "Test passed");
 		}
-
 		ExtentManager.getReporter().endTest(ExtentTestManager.getTest());
 		ExtentManager.getReporter().flush();
 	}
+	
+	
 
 	protected String getStackTrace(Throwable t) {
 		StringWriter sw = new StringWriter();
@@ -44,13 +44,20 @@ public abstract class BaseClass {
 		return sw.toString();
 	}
 
-	public static void usingDataOutputStream(String fileContent, String testCaseID, String folderName, boolean isReq) {
+	
+	public static void writetoFile(String fileContent, String testCaseID, String folderName, boolean isReq) {
 		File file = new File("./reports/" + folderName);
+		com.mvi.lib.utils.Xls_Reader xls = new com.mvi.lib.utils.Xls_Reader(
+				"D:\\Rest API\\UdemyWorkspace\\MightyPay\\testdata\\Topup.xlsx");
+		int rowNum = xls.getCellRowNum("Topup", "TestCaseID", testCaseID);
+		System.out.println("Row Number is " + rowNum);
 		file.mkdir();
 		FileOutputStream outputStream;
 		String fileApp = "_Res.json";
+		xls.setCellData("Topup", "Res Name", rowNum, file.getPath() + File.separator + testCaseID + fileApp);
 		if (isReq) {
 			fileApp = "_Req.json";
+			xls.setCellData("Topup", "Req Name", rowNum, file.getPath() + File.separator + testCaseID + fileApp);
 		}
 		try {
 			outputStream = new FileOutputStream(file.getPath() + File.separator + testCaseID + fileApp);

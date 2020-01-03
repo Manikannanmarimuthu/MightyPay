@@ -34,6 +34,7 @@ public abstract class HTMLReporter {
 	// @BeforeMethod
 	public ExtentTest startTestModule(String nodes) {
 		test = testSuite.createNode(nodes);
+		// extentTestMap.put((int) (long) (Thread.currentThread().getId()), test);
 		return test;
 	}
 
